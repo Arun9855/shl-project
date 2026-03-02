@@ -1,6 +1,13 @@
 import streamlit as st
 import requests
 import os
+import sys
+
+# Crucial: Fix ModuleNotFoundError by adding the project root to sys.path
+# This allows 'frontend/app.py' to import from sibling folders like 'core', 'llm', and 'retrieval'
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if project_root not in sys.path:
+    sys.path.append(project_root)
 
 # Production Configuration
 # Points to the live API URL or falls back to local for development
