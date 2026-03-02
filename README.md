@@ -1,2 +1,2 @@
-# SHL Assessment Recommender System (v1.0)
+# Recommender System (v1.0)
 
