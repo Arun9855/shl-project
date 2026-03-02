@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Notebooks
+.ipynb_checkpoints
+
+# AI/ML
+*.index
+*.faiss
+*.pkl
+*.bin
+*.model
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project Docs Resources (Exclude raw data if too large)
+docs/resources/
+
+# Output
+data/output/
+recall_debug_output.txt
+recall_debug_final.txt
+recall_surgical_debug.py
+debug_recall.py
+brutal_audit.py
+arun_kumar.csv
+*.xlsx
+*.docx
+*.pdf
