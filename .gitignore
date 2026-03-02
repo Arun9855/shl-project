@@ -4,13 +4,14 @@ __pycache__/
 *$py.class
 venv/
 .env
+.ipynb_checkpoints/
 
-# Notebooks
-.ipynb_checkpoints
+# Project Data (INCLUDED for live deployment brain)
+# data/vector.index  -> (Allow)
+# data/assessments.db -> (Allow)
+# data/assessments.json -> (Allow)
 
-# AI/ML
-*.index
-*.faiss
+# AI/ML Exclusions
 *.pkl
 *.bin
 *.model
@@ -19,17 +20,19 @@ venv/
 .DS_Store
 Thumbs.db
 
-# Project Docs Resources (Exclude raw data if too large)
-docs/resources/
-
-# Output
+# Output & Logs
 data/output/
-recall_debug_output.txt
-recall_debug_final.txt
-recall_surgical_debug.py
+/tmp/
+*.log
+recall_debug*
+recall_surgical*
 debug_recall.py
 brutal_audit.py
-arun_kumar.csv
-*.xlsx
+test_*.py
+
+# Documentation Resources
+docs/resources/
 *.docx
 *.pdf
+# *.xlsx (Ignore if contains raw data, but keep for project record if small)
+# Gen_AI Dataset.xlsx

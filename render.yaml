@@ -1,0 +1,27 @@
+services:
+  # The Backend API Service (FastAPI)
+  - type: web
+    name: shl-recommender-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false # Must be set in the Render Dashboard dashboard
+      - key: PYTHON_VERSION
+        value: 3.10.0
+
+  # The Frontend User Interface (Streamlit)
+  - type: web
+    name: shl-recommender-ui
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run frontend/app.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: API_URL
+        fromService:
+          name: shl-recommender-api
+          type: web
+          property: host
+      - key: PYTHON_VERSION
+        value: 3.10.0

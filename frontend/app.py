@@ -1,7 +1,12 @@
 import streamlit as st
 import requests
+import os
 
-API_URL = "http://127.0.0.1:8000/recommend"
+# Production Configuration
+# Points to the live API URL or falls back to local for development
+API_URL = os.getenv("API_URL", "http://127.0.0.1:8000/recommend")
+if not API_URL.endswith("/recommend"):
+    API_URL = API_URL.rstrip("/") + "/recommend"
 
 st.set_page_config(page_title="SHL Assessment Recommender", page_icon="🎯", layout="wide")
 
